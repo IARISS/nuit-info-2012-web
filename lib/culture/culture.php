@@ -22,16 +22,12 @@ class Culture {
   private function hydrate(array $datas){
     foreach($datas as $key => $value){
       if($key == "tags"){
-        $this->loadTags($value);
+        $this->tags = explode(",", $value);
       }
       else{
         $this->$key = $value;
       }
     }
-  }
-
-  private function loadTags($tagsStr){
-    $tags = Tag::getTagsIn(explode(",", $tagsStr));
   }
 
   public function getId(){
@@ -77,14 +73,27 @@ class Culture {
     $this->gpsZ = $gpsZ;
   }
   public function getTags(){
+    return Tag::getTagsIdIn($this->tags);
+  }
+  public function getTagsId(){
     return $this->tags;
   }
   public function getTagsString(){
+    return implode(',', $this->tags);
+  }
+
+  public function parseTags(){
+    $this->tags = array();
+    $pattern = '/[[:space:][:punct:]]/';
+    $nameWords = preg_split($pattern, strtolower($this->name));
+    $descWords = preg_split($pattern, strtolower($this->description));
+    $words = array_unique(array_merge($nameWords, $descWords));
+    $tags = Tag::getTagsNameIn($words);
     $idArray = array();
-    foreach($this->tags as $tag){
+    foreach($tags as $tag){
       $idArray[] = $tag->getId();
     }
-    return implode(',', $idArray);
+    $this->tags = $idArray;
   }
 
   static public function countCultures(){
@@ -109,6 +118,7 @@ class Culture {
     }
     $req->bindValue('name', $obj->name, PDO::PARAM_STR);
     $req->bindValue('description', $obj->description, PDO::PARAM_STR);
+    $obj->parseTags();
     $req->bindValue('tags', $obj->getTagsString(), PDO::PARAM_STR);
     $req->bindValue('img', $obj->img, PDO::PARAM_STR);
     $req->bindValue('gpsX', $obj->gpsX, PDO::PARAM_STR);

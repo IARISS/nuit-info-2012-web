@@ -51,15 +51,18 @@ echo "IN TEST<br/>";
 var_dump(Tag::getTagsIdIn(array(1,2,3,4,5,6,7,8,9,10,11)));
 
 echo "TAG END<br/>";
+
 echo "CULTURE START<br/>";
 
 $c = new Culture();
 $c->setName('Culture Test');
-$c->setDescription('Description OtherTag de test pour la ThemeTag culture');
+$c->setDescription('Description OtherTagTest de test pour la ThemeTagTest culture');
 $c->setGpsX(2568.26);
 $c->setGpsY(657.28);
 $c->setGpsZ(798413.552);
 $c->setImg('test.png');
+$c->parseTags();
+
 
 var_dump(Culture::saveCulture($c));
 var_dump($c);
@@ -67,6 +70,8 @@ var_dump($c);
 var_dump(Culture::countCultures());
 var_dump(Culture::getCulture($c->getId()));
 var_dump(Culture::getCultures());
+
+var_dump($c->getTags());
 
 echo "CULTURE END<br/>";
 ?>

@@ -91,11 +91,24 @@ class Tag {
     $req->closeCursor();
     return $objs;
   }
-
-  static public function getTagsIn(array $tagsId){
+  static public function getTagsIdIn(array $tagsId){
     $in = implode(",", $tagsId);
     $objs = array();
     $req = DataBase::getInstance()->prepare('SELECT id, name, tagType FROM tags WHERE id IN ('.(empty($in)?'0':$in).')');
+    $req->execute();
+    while($datas = $req->fetch()){
+      $obj = new Tag();
+      $obj->hydrate($datas);
+      $objs[] = $obj;
+    }
+    $req->closeCursor();
+    return $objs;
+  }
+  static public function getTagsNameIn(array $tagsName){
+    $func = function($str){return '"'.$str.'"';};
+    $in = implode(",", array_map($func, $tagsName));
+    $objs = array();
+    $req = DataBase::getInstance()->prepare('SELECT id, name, tagType FROM tags WHERE LOWER(name) IN ('.(empty($in)?'0':$in).')');
     $req->execute();
     while($datas = $req->fetch()){
       $obj = new Tag();
