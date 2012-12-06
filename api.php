@@ -23,18 +23,14 @@ $return = array();
 
 switch($action) {
   case 'search' :
-    // @param tags = $value
-    $tags = preg_split('/[[:space:][:punct:][:digit:]]/', strtolower($value), -1, PREG_SPLIT_NO_EMPTY);
-
-    $return = array();
-
+    // @param search = $value
+    $return = Culture::findCultures($value);
     break;
 
 
   case 'view' :
     // @param id = $value
-
-    $return = array();
+    $return = Culture::getCulture($value);;
     break;
 
   default:
