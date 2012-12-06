@@ -5,7 +5,7 @@ namespace lib\tag;
  */
 class DateTag extends Tag{
   public function __construct(){
-  	$this->setTagType(Tag::$TYPE[DATE]);
+  	$this->setTagType(Tag::$TYPE['DATE']);
   }
 }
 ?>
