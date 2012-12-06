@@ -10,7 +10,7 @@
       <h1>Related Tags</h1>
       <ul>
         <?php foreach( array('tag', 'tag2', 'tag3') as $tag ): ?>
-        <li><a href="?tags=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
+        <li><a href="./search?tags=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
         <?php endforeach; ?>
       </ul>
     </div>
@@ -27,7 +27,7 @@
             <h1>Title</h1>
             <ul class="tags">
               <?php foreach( array('tag', 'tag2', 'tag3') as $tag ): ?>
-              <li><a href="?tags=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
+              <li><a href="./search?tags=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
               <?php endforeach; ?>
             </ul>
           </div>
