@@ -48,7 +48,7 @@ var_dump(Tag::getTag($dTag->getId()));
 echo "WHERE TYPE TEST<br/>";
 var_dump(Tag::getTagsWhereType(Tag::$TYPE['OTHER']));
 echo "IN TEST<br/>";
-var_dump(Tag::getTagsIn(array(1,2,3,4,5,6,7,8,9,10,11)));
+var_dump(Tag::getTagsIdIn(array(1,2,3,4,5,6,7,8,9,10,11)));
 
 echo "TAG END<br/>";
 echo "CULTURE START<br/>";
