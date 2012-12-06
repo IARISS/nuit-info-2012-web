@@ -19,24 +19,23 @@
     <div>
       <article>
         <form action="" method="POST" class="form-horizontal">
-          <div class="row-fluid">
-            <div class="span2 align-center">
-              <figure class="img-polaroid">
-              </figure>
-              <a href="#"><i class="icon-plus"></i></a>
-            </div>
-            <div class="span9">
               <div class="control-group">
                 <label class="control-label">Titre :</label>
                 <div class="controls">
                   <input type="text" name="title" value="" />
                 </div>
               </div>
-            </div>
-            <div class="span1 more">
-              <i class="icon-chevron-right"></i>
-            </div>
-          </div>
+
+              <div class="control-group">
+                <label class="control-label">Description :</label>
+                <div class="controls">
+                  <textarea name="title"></textarea>
+                </div>
+              </div>
+              <div>
+                <input type="submit" class="btn btn-primary pull-right" value="Créer" />
+              </div>
+              <br /> <!-- todo -->
         </form>
       </article>
     </div>
