@@ -1,6 +1,6 @@
 <form id="search-search" class="form-search" method="GET" action="./search">
   <div>
-    <input type="text" name="search" value="" class="input-xxlarg span5" placeholder="Entrez votre recherche (ex: Musée, Alsace, Etoffes, ...)" />
+    Recherche : <input type="text" name="search" value="<?php echo $get_search; ?>" class="input-xxlarg span5" placeholder="Entrez votre recherche (ex: Musée, Alsace, Etoffes, ...)" />
   </div>
 </form>
 
@@ -9,7 +9,7 @@
     <div>
       <h1>Related Tags</h1>
       <ul>
-        <?php foreach( array('tag', 'tag2', 'tag3') as $tag ): ?>
+        <?php foreach( $entitiesTags as $tag ): ?>
         <li><a href="./search?tags=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
         <?php endforeach; ?>
       </ul>
