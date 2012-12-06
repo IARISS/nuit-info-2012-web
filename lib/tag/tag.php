@@ -2,7 +2,9 @@
 namespace lib\tag;
 use lib\db\DataBase;
 use PDO;
-
+/**
+ * @author Karl
+ */
 abstract class Tag {
   private static $TYPE_OTHER = "other";
   private static $TYPE_POS = "pos";
@@ -81,7 +83,7 @@ abstract class Tag {
     $req = DataBase::getInstance()->prepare('SELECT id, name, tagType FROM tags');
     $req->execute();
     while($datas = $req->fetch()){
-      $obj = new Game();
+      $obj = new Tag();
       $obj->hydrate($datas);
       $objs[] = $obj;
     }
@@ -94,7 +96,7 @@ abstract class Tag {
     $req->bindvalue('tagType', $tagType, PDO::PARAM_STR);
     $req->execute();
     while($datas = $req->fetch()){
-      $obj = new Game();
+      $obj = new Tag();
       $obj->hydrate($datas);
       $objs[] = $obj;
     }
