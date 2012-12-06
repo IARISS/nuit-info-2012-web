@@ -5,25 +5,7 @@ use lib\content\Image;
 use lib\content\Menu;
 use lib\content\Message;
 
-spl_autoload_extensions('.php');
-spl_autoload_register();
-
-session_start();
-
-
-//Template maitre, les pages supplémentaires sont à mettre dans le dossier pages
-if (empty($_GET['page'])) {
-  $_GET['page'] = 'home';
-  //header('Location: ' . dirname($_SERVER['PHP_SELF']) . '/home');
-  exit();
-}
-
-// Contenu de la page
-str_replace("\0", '', $_GET['page']); //Protection bytenull
-str_replace(DIRECTORY_SEPARATOR, '', $_GET['page']); //Protection navigation
-
-$contentPage = 'pages/'.$_GET['page'].'/view.php';
-$contentPage = file_exists($contentPage)?$contentPage:'pages/errors/404.php';
+include 'common.php';
 
 //Affichage
 ?><!DOCTYPE html>
@@ -42,7 +24,9 @@ $contentPage = file_exists($contentPage)?$contentPage:'pages/errors/404.php';
     <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <link rel="stylesheet" media="screen" href="theme/defaut/css/bootstrap.min.css" />
     <link rel="stylesheet" media="screen" href="theme/defaut/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" media="screen" href="theme/defaut/css/style.css" />
+    <?php foreach( array('defaut', $theme) as $t ): if( empty($t) ) continue; ?>
+    <link rel="stylesheet" media="screen" href="theme/<?php echo $t; ?>/css/style.css" />
+    <?php endforeach; ?>
     
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /> 
 		<link rel="icon" type="image/png" href="/favicon.png" />
