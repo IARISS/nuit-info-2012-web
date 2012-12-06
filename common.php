@@ -26,7 +26,7 @@ if( isset($_COOKIE['theme']) ) {
 if (empty($_GET['page'])) {
   $_GET['page'] = 'home';
   //header('Location: ' . dirname($_SERVER['PHP_SELF']) . '/home');
-  exit();
+  //exit();
 }
 
 // Contenu de la page
