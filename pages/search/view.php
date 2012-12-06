@@ -31,8 +31,8 @@
               <?php endforeach; ?>
             </ul>
           </div>
-          <div class="span1">
-            &gt;
+          <div class="span1 more">
+            <i class="icon-chevron-right"></i>
           </div>
         </div>
       </article>
