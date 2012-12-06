@@ -38,9 +38,6 @@ $contentPage = file_exists($contentPage)?$contentPage:'pages/404.php';
         
         <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <link rel="stylesheet" media="screen" href="/css/style.css" />
-        
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /> 
-		<link rel="icon" type="image/png" href="/favicon.png" />
     </head>
     
     <body>
