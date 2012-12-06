@@ -84,11 +84,7 @@ class Culture {
 
   public function parseTags(){
     $this->tags = array();
-    $pattern = '/[[:space:][:punct:]]/';
-    $nameWords = preg_split($pattern, strtolower($this->name));
-    $descWords = preg_split($pattern, strtolower($this->description));
-    $words = array_unique(array_merge($nameWords, $descWords));
-    $tags = Tag::getTagsNameIn($words);
+    $tags = Tag::getTagsExtractedFromString($this->name.' '.$this->description);
     $idArray = array();
     foreach($tags as $tag){
       $idArray[] = $tag->getId();
@@ -152,6 +148,10 @@ class Culture {
     }
     $req->closeCursor();
     return $objs;
+  }
+  static public function findCultures($search){
+    $tags = Tag::getTagsExtractedFromString($search);
+    return Culture::getCultugesWithTags($tags);
   }
   static public function deleteCulture($id){
     $req = DataBase::getInstance()->prepare('DELETE FROM cultures WHERE id = :id');
