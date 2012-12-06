@@ -24,7 +24,7 @@
             </figure>
           </div>
           <div class="span9">
-            <h1>Title</h1>
+            <h1><a href="./view-0">Title</a></h1>
             <ul class="tags">
               <?php foreach( array('tag', 'tag2', 'tag3') as $tag ): ?>
               <li><a href="?tags=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
