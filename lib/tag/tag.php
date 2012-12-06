@@ -96,7 +96,6 @@ class Tag {
     return $objs;
   }
   static public function getTagsExtractedFromString($str){
-    $this->tags = array();
     $pattern = '/[[:space:][:punct:]]/';
     $strWords = preg_split($pattern, strtolower($str));
     $words = array_unique($strWords);
