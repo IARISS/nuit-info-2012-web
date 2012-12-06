@@ -82,6 +82,10 @@ class Culture {
     return implode(',', $this->tags);
   }
 
+  public function __toString(){
+    return $this->getName();
+  }
+
   public function parseTags(){
     $this->tags = array();
     $tags = Tag::getTagsExtractedFromString($this->name.' '.$this->description);
@@ -148,6 +152,9 @@ class Culture {
     }
     $req->closeCursor();
     return $objs;
+  }
+  static public function getCultugesWithTags(array $tags){
+    
   }
   static public function findCultures($search){
     $tags = Tag::getTagsExtractedFromString($search);

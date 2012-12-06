@@ -40,6 +40,10 @@ class Tag {
     $this->tagType = $tagType;
   }
 
+  public function __toString(){
+    return $this->getName();
+  }
+
   static public function countTags(){
     $req = DataBase::getInstance()->prepare('SELECT COUNT(id) FROM tags');
     $req->execute();
@@ -90,6 +94,13 @@ class Tag {
     }
     $req->closeCursor();
     return $objs;
+  }
+  static public function getTagsExtractedFromString($str){
+    $this->tags = array();
+    $pattern = '/[[:space:][:punct:]]/';
+    $strWords = preg_split($pattern, strtolower($str));
+    $words = array_unique($strWords);
+    return Tag::getTagsNameIn($words);
   }
   static public function getTagsIdIn(array $tagsId){
     $in = implode(",", $tagsId);
