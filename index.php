@@ -24,7 +24,7 @@ include 'common.php';
     <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <link rel="stylesheet" media="screen" href="theme/defaut/css/bootstrap.min.css" />
     <link rel="stylesheet" media="screen" href="theme/defaut/css/bootstrap-responsive.min.css" />
-    <?php foreach( array('defaut', $theme) as $t ): if( empty($t) ) continue; ?>
+    <?php foreach( array('defaut', $_theme) as $t ): if( empty($t) ) continue; ?>
     <link rel="stylesheet" media="screen" href="theme/<?php echo $t; ?>/css/style.css" />
     <?php endforeach; ?>
     
@@ -53,9 +53,23 @@ include 'common.php';
                 </ul>
               </li>
             </ul>
-            <form class="navbar-form pull-right">
-              <input type="text" class="search-query" placeholder="Search">
-            </form>
+            <ul class="nav pull-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Thèmes <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="nav-header">Selectionnez un thème</li>
+                  <?php
+                  foreach( new \DirectoryIterator('./theme/') as $theme ):
+                    if( !$theme->isDir() || $theme->isDot() )
+                        continue;
+                  ?>
+                  <li <?php echo $_theme == (string) $theme ? 'class="active"' : null; ?>>
+                    <a href="?theme=<?php echo $theme; ?>"><?php echo ucfirst($theme); ?></a>
+                  </li>
+                  <?php endforeach; ?>
+                </ul>
+              </li>
+            </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -78,5 +92,8 @@ include 'common.php';
     <footer>
        
     </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="./theme/defaut/js/bootstrap.min.js"></script>
   </body>
 </html>

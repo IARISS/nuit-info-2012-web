@@ -8,16 +8,16 @@ session_start();
 /* SET Theme */
 define('_DIR_', dirname(__FILE__) . DIRECTORY_SEPARATOR);
 
-$theme = null;
+$_theme = null;
 if( isset($_GET['theme']) ) {
   $_COOKIE['theme'] = htmlspecialchars($_GET['theme']);
   setcookie('theme', $_COOKIE['theme']);
 }
 
 if( isset($_COOKIE['theme']) ) {
-  $theme = htmlspecialchars($_COOKIE['theme']);
-  if( !file_exists(_DIR_ . 'theme/' . $theme . '/') )
-    $theme = null;
+  $_theme = htmlspecialchars($_COOKIE['theme']);
+  if( !file_exists(_DIR_ . 'theme/' . $_theme . '/') )
+    $_theme = null;
 }
 
 
