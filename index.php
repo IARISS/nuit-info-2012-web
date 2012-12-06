@@ -13,7 +13,8 @@ session_start();
 
 //Template maitre, les pages supplémentaires sont à mettre dans le dossier pages
 if (empty($_GET['page'])) {
-  header('Location: ' . dirname($_SERVER['PHP_SELF']) . '/home');
+  $_GET['page'] = 'home';
+  //header('Location: ' . dirname($_SERVER['PHP_SELF']) . '/home');
   exit();
 }
 
