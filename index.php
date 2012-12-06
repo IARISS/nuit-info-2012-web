@@ -78,13 +78,19 @@ include 'common.php';
     <div>
       <section class="container">
       <?php
-      $controllerPage = dirname($contentPage) . '/controller.php';
+      try {
+        $controllerPage = dirname($contentPage) . '/controller.php';
       
-      // Controller
-      if( file_exists($controllerPage) )
-        require $controllerPage;
+        // Controller
+        if( file_exists($controllerPage) )
+          require $controllerPage;
 
-      include $contentPage; // view
+        include $contentPage; // view
+      }
+      catch(\Exception $e) {
+        echo '<div class="alert alert-error"><h1>Erreur</h1>', $e->getMessage(), '</div>';
+      }
+
       ?>
       </section>
     </div>
