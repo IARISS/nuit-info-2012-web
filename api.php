@@ -1,5 +1,6 @@
 <?php
-
+namespace lib;
+use lib\culture\Culture;
 
 /**
  * api.php?action=search&value={TAG}  : {TAG} = tag1+tag2 -> urlecode()
