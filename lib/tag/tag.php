@@ -5,8 +5,8 @@ use PDO;
 /**
  * @author Karl
  */
-abstract class Tag {
-  private static $TYPE = array("OTHER" => "other", "POS" => "pos", "THEME" => "theme", "DATE" => "date");
+class Tag {
+  public static $TYPE = array("OTHER" => "other", "POS" => "pos", "THEME" => "theme", "DATE" => "date");
 
   private $id = 0;
   private $name;
@@ -23,6 +23,9 @@ abstract class Tag {
 
   public function getId(){
     return $this->id;
+  }
+  private function setId($id){
+    $this->id = (int) $id;
   }
   public function getName(){
     return $this->name;
@@ -60,10 +63,10 @@ abstract class Tag {
     $req->bindValue('name', $obj->name, PDO::PARAM_STR);
     $req->bindValue('tagType', $obj->tagType, PDO::PARAM_STR);
     $req->execute();
-    $req->closeCursor();
     if($count == 0){
       $obj->setId(DataBase::getInstance()->lastInsertId());
     }
+    $req->closeCursor();
   }
   static public function getTag($id){
     $req = DataBase::getInstance()->prepare('SELECT id, name, tagType FROM tags WHERE id = :id');
@@ -71,6 +74,7 @@ abstract class Tag {
     $req->execute();
     $datas = $req->fetch();
     $req->closeCursor();
+    if(empty($datas)) return null;
     $obj = new Tag();
     $obj->hydrate($datas);
     return $obj;
@@ -90,7 +94,8 @@ abstract class Tag {
 
   static public function getTagsIn(array $tagsId){
     $in = implode(",", $tagsId);
-    $req = DataBase::getInstance()->prepare('SELECT id, name, tagType FROM tags WHERE id IN ('. $in .')');
+    $objs = array();
+    $req = DataBase::getInstance()->prepare('SELECT id, name, tagType FROM tags WHERE id IN ('.(empty($in)?'0':$in).')');
     $req->execute();
     while($datas = $req->fetch()){
       $obj = new Tag();

@@ -2,6 +2,7 @@
 namespace lib\culture;
 use lib\db\DataBase;
 use PDO;
+use lib\tag\Tag;
 /**
  * @author Karl
  */
@@ -13,14 +14,14 @@ class Culture {
   private $gpsX;
   private $gpsY;
   private $gpsZ;
-  private $tags;
+  private $tags = array();
 
   public function __construct(){
   }
 
   private function hydrate(array $datas){
     foreach($datas as $key => $value){
-      if($key = "tags"){
+      if($key == "tags"){
         $this->loadTags($value);
       }
       else{
@@ -30,11 +31,14 @@ class Culture {
   }
 
   private function loadTags($tagsStr){
-    Tag::getTagsIn(explode(",", $tagsStr));
+    $tags = Tag::getTagsIn(explode(",", $tagsStr));
   }
 
   public function getId(){
     return $this->id;
+  }
+  private function setId($id){
+    $this->id = (int) $id;
   }
   public function getName(){
     return $this->name;
@@ -76,7 +80,11 @@ class Culture {
     return $this->tags;
   }
   public function getTagsString(){
-    return implode(",", $this->tags);
+    $idArray = array();
+    foreach($this->tags as $tag){
+      $idArray[] = $tag->getId();
+    }
+    return implode(',', $idArray);
   }
 
   static public function countCultures(){
@@ -107,9 +115,9 @@ class Culture {
     $req->bindValue('gpsY', $obj->gpsY, PDO::PARAM_STR);
     $req->bindValue('gpsZ', $obj->gpsZ, PDO::PARAM_STR);
     $req->execute();
-    $req->closeCursor();
     if($count == 0){
       $obj->setId(DataBase::getInstance()->lastInsertId());
+    $req->closeCursor();
     }
   }
   static public function getCulture($id){
@@ -118,6 +126,7 @@ class Culture {
     $req->execute();
     $datas = $req->fetch();
     $req->closeCursor();
+    if(empty($datas)) return null;
     $obj = new Culture();
     $obj->hydrate($datas);
     return $obj;
