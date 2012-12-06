@@ -5,7 +5,7 @@ use PDO;
 /**
  * @author Karl
  */
-abstract class Culture {
+class Culture {
   private $id = 0;
   private $name;
   private $description;
@@ -13,14 +13,24 @@ abstract class Culture {
   private $gpsX;
   private $gpsY;
   private $gpsZ;
+  private $tags;
 
   public function __construct(){
   }
 
   private function hydrate(array $datas){
     foreach($datas as $key => $value){
-      $this->$key = $value;
+      if($key = "tags"){
+        $this->loadTags($value);
+      }
+      else{
+        $this->$key = $value;
+      }
     }
+  }
+
+  private function loadTags($tagsStr){
+    Tag::getTagsIn(explode(",", $tagsStr));
   }
 
   public function getId(){
@@ -62,6 +72,12 @@ abstract class Culture {
   public function setGpsZ($gpsZ){
     $this->gpsZ = $gpsZ;
   }
+  public function getTags(){
+    return $this->tags;
+  }
+  public function getTagsString(){
+    return implode(",", $this->tags);
+  }
 
   static public function countCultures(){
     $req = DataBase::getInstance()->prepare('SELECT COUNT(id) FROM cultures');
@@ -77,14 +93,15 @@ abstract class Culture {
     $count = $req->fetchColumn();
     $req->closeCursor();
     if($count == 0){
-      $req = DataBase::getInstance()->prepare('INSERT INTO cultures(name, description, img, gpsX, gpsY, gpsZ) VALUES (:name, :description, :img, :gpsX, :gpsY, :gpsZ)');
+      $req = DataBase::getInstance()->prepare('INSERT INTO cultures(name, description, tags, img, gpsX, gpsY, gpsZ) VALUES (:name, :description, :tags, :img, :gpsX, :gpsY, :gpsZ)');
     }
     else{
-      $req = DataBase::getInstance()->prepare('UPDATE cultures SET (name = :name, description = :description, img = :img, gpsX = :gpsX, gpsY = :gpsY, gpsZ = :gpsZ) WHERE id = :id');
+      $req = DataBase::getInstance()->prepare('UPDATE cultures SET (name = :name, description = :description, tags = :tags, img = :img, gpsX = :gpsX, gpsY = :gpsY, gpsZ = :gpsZ) WHERE id = :id');
       $req->bindvalue('id', $obj->getId(), PDO::PARAM_INT);
     }
     $req->bindValue('name', $obj->name, PDO::PARAM_STR);
     $req->bindValue('description', $obj->description, PDO::PARAM_STR);
+    $req->bindValue('tags', $obj->getTagsString(), PDO::PARAM_STR);
     $req->bindValue('img', $obj->img, PDO::PARAM_STR);
     $req->bindValue('gpsX', $obj->gpsX, PDO::PARAM_STR);
     $req->bindValue('gpsY', $obj->gpsY, PDO::PARAM_STR);
@@ -96,7 +113,7 @@ abstract class Culture {
     }
   }
   static public function getCulture($id){
-    $req = DataBase::getInstance()->prepare('SELECT id, name, description, img, gpsX, gpsY, gpsZ FROM cultures WHERE id = :id');
+    $req = DataBase::getInstance()->prepare('SELECT id, name, description, tags, img, gpsX, gpsY, gpsZ FROM cultures WHERE id = :id');
     $req->bindvalue('id', $id, PDO::PARAM_INT);
     $req->execute();
     $datas = $req->fetch();
@@ -107,7 +124,7 @@ abstract class Culture {
   }
   static public function getCultures(){
     $objs = array();
-    $req = DataBase::getInstance()->prepare('SELECT id, name, description, img, gpsX, gpsY, gpsZ FROM cultures');
+    $req = DataBase::getInstance()->prepare('SELECT id, name, description, tags, img, gpsX, gpsY, gpsZ FROM cultures');
     $req->execute();
     while($datas = $req->fetch()){
       $obj = new Culture();
@@ -128,7 +145,8 @@ abstract class Culture {
       CREATE TABLE IF NOT EXISTS cultures (
         id int NOT NULL AUTO_INCREMENT,
         name varchar(255) NOT NULL,
-        description varchar(255) NOT NULL,
+        description text,
+        tags text,
         img varchar(255) NOT NULL,
         gpsX varchar(255) NOT NULL,
         gpsY varchar(255) NOT NULL,

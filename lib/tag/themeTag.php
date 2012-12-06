@@ -5,7 +5,7 @@ namespace lib\tag;
  */
 class ThemeTag extends Tag{
   public function __construct(){
-  	$this->$tagType = Tag::$TYPE_THEME;
+  	$this->$tagType = Tag::$TYPE[THEME];
   }
 }
 ?>

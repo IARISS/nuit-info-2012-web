@@ -6,10 +6,7 @@ use PDO;
  * @author Karl
  */
 abstract class Tag {
-  private static $TYPE_OTHER = "other";
-  private static $TYPE_POS = "pos";
-  private static $TYPE_THEME = "theme";
-  private static $TYPE_DATE = "date";
+  private static $TYPE = array("OTHER" => "other", "POS" => "pos", "THEME" => "theme", "DATE" => "date");
 
   private $id = 0;
   private $name;
@@ -90,7 +87,20 @@ abstract class Tag {
     $req->closeCursor();
     return $objs;
   }
-  static public function getTags($tagType){
+
+  static public function getTagsIn(array $tagsId){
+    $in = implode(",", $tagsId);
+    $req = DataBase::getInstance()->prepare('SELECT id, name, tagType FROM tags WHERE id IN ('. $in .')');
+    $req->execute();
+    while($datas = $req->fetch()){
+      $obj = new Tag();
+      $obj->hydrate($datas);
+      $objs[] = $obj;
+    }
+    $req->closeCursor();
+    return $objs;
+  }
+  static public function getTagsWhereType($tagType){
     $objs = array();
     $req = DataBase::getInstance()->prepare('SELECT id, name, tagType FROM tags WHERE tagType = :tagType');
     $req->bindvalue('tagType', $tagType, PDO::PARAM_STR);
