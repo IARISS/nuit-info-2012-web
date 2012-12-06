@@ -1,4 +1,4 @@
-<form id="search-search" class="form-search" method="GET" action="/search">
+<form id="search-search" class="form-search" method="GET" action="./search">
   <div>
     <input type="text" name="search" value="" class="input-xxlarg span5" placeholder="Entrez votre recherche (ex: Musée, Alsace, Etoffes, ...)" />
   </div>

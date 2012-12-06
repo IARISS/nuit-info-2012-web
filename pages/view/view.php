@@ -1,4 +1,4 @@
-<form id="search-search" class="form-search" method="GET" action="/search">
+<form id="search-search" class="form-search" method="GET" action="./search">
   <div>
     <input type="text" name="search" value="" class="input-xxlarg span5" placeholder="Entrez votre recherche (ex: Musée, Alsace, Etoffes, ...)" />
   </div>
@@ -28,7 +28,7 @@
             <h1><?php echo $entity->getName(); ?></h1>
             <ul class="tags">
               <?php foreach( $entity->getTags() as $tag ): ?>
-              <li><a href="./search?tags=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
+              <li><a href="./search?tags=<?php echo $tag->getname(); ?>"><?php echo $tag->getName(); ?></a></li>
               <?php endforeach; ?>
             </ul>
           </div>
