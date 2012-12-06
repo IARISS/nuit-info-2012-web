@@ -3,6 +3,11 @@ namespace lib\db;
 use Exception;
 use PDO;
 use SimpleXMLElement;
+
+//For install
+use lib\culture\Culture;
+use lib\tag\Tag;
+
 /**
  * @author Karl
  */
@@ -28,16 +33,9 @@ class DataBase {
         self::$count++;
         return self::$instance;
     }
-    static function install($filename){
-        if(is_file($filename)){
-            $requests = preg_split('/;/', file_get_contents($filename), -1, PREG_SPLIT_NO_EMPTY);
-            foreach($requests as $request) {  
-                self::getInstance()->query($request);
-            }
-        }
-        else{
-            throw new Exception('SQL installation file not found.');
-        }
+    static function install(){
+        Tag::install();
+        Culture::install();
     }
     static function countQuery(){
         return self::$count;
