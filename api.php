@@ -2,6 +2,9 @@
 namespace lib;
 use lib\culture\Culture;
 
+spl_autoload_extensions('.php');
+spl_autoload_register();
+
 /**
  * api.php?action=search&value={TAG}  : {TAG} = tag1+tag2 -> urlecode()
  *  @return [
