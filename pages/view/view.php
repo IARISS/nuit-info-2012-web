@@ -21,25 +21,23 @@
         <div class="row-fluid">
           <div class="span2">
             <figure class="img-polaroid">
+              <img src="<?php echo $entity->getImg(); ?>" alt="" />
             </figure>
           </div>
-          <div class="span9">
-            <h1>Title</h1>
+          <div class="span10">
+            <h1><?php echo $entity->getName(); ?></h1>
             <ul class="tags">
-              <?php foreach( array('tag', 'tag2', 'tag3') as $tag ): ?>
-              <li><a href="./search?tags=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
+              <?php foreach( $entity->getTags() as $tag ): ?>
+              <li><a href="./search?tags=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
               <?php endforeach; ?>
             </ul>
-          </div>
-          <div class="span1 more">
-            <i class="icon-chevron-right"></i>
           </div>
         </div>
         <br />
         <div class="row-fluid">
           <div class="offset2 description">
-            <a href="#" class="pull-right"><i class="icon-*edit"></i> Editer la description</a>
-            Description de la page
+            <a href="#" class="pull-right"><i class="icon-*edit"></i> Editer la fiche</a>
+            <?php echo $entity->getDescription(); ?>
           </div>
         </div>
       </article>
