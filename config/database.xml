@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<dsn>mysql:host=10.57.110.11;dbname=iariss</dsn>
+	<login>iariss</login>
+	<password>iariss</password>
+</root>
