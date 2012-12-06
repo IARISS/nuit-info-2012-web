@@ -28,13 +28,17 @@ $return = array();
 switch($action) {
   case 'search' :
     // @param search = $value
-    $return = Culture::findCultures($value);
+    $cultures = Culture::findCultures($value);
+    $return = array();
+    foreach($cultures as $c){
+      $return[] = $c->toJson();
+    }
     break;
 
 
   case 'view' :
     // @param id = $value
-    $return = Culture::getCulture($value);;
+    $return = Culture::getCulture($value)->toJson();
     break;
 
   default:
@@ -42,7 +46,7 @@ switch($action) {
     break;
 }
 
-Header('Content-type: application/json');
+//Header('Content-type: application/json');
 echo json_encode($return ?: new stdClass());
 
 

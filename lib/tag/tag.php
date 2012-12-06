@@ -44,6 +44,10 @@ class Tag {
     return $this->getName();
   }
 
+  public function toJson(){
+    return array('id' => $this->getId(),'name' => $this->getName(),'tagType' => $this->getTagType());
+  }
+
   static public function countTags(){
     $req = DataBase::getInstance()->prepare('SELECT COUNT(id) FROM tags');
     $req->execute();

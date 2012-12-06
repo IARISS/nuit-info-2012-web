@@ -86,6 +86,10 @@ class Culture {
     return $this->getName();
   }
 
+  public function toJson(){
+    return array('id' => $this->getId(),'name' => $this->getName(),'description' => $this->getDescription(),'img' => $this->getImg(),'gpsX' => $this->getGpsX(),'gpsY' => $this->getGpsY(),'gpsZ' => $this->getGpsZ(),'tags' => $this->getTagsId());
+  }
+
   public function parseTags(){
     $this->tags = array();
     $tags = Tag::getTagsExtractedFromString($this->name.' '.$this->description);
