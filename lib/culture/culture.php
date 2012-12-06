@@ -154,7 +154,20 @@ class Culture {
     return $objs;
   }
   static public function getCultugesWithTags(array $tags){
-    
+    $idArray = array();
+    foreach($tags as $tag){
+      $idArray[] = $tag->getId();
+    }
+    $objs = array();
+    $req = DataBase::getInstance()->prepare('SELECT id, name, description, tags, img, gpsX, gpsY, gpsZ FROM cultures WHERE tags REGEXP "(^|,)('.implode('|',$idArray).')(,|$)"');
+    $req->execute();
+    while($datas = $req->fetch()){
+      $obj = new Culture();
+      $obj->hydrate($datas);
+      $objs[] = $obj;
+    }
+    $req->closeCursor();
+    return $objs;
   }
   static public function findCultures($search){
     $tags = Tag::getTagsExtractedFromString($search);
