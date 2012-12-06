@@ -10,24 +10,26 @@
       <h1>Related Tags</h1>
       <ul>
         <?php foreach( $entitiesTags as $tag ): ?>
-        <li><a href="./search?tags=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
+        <li><a href="./search?tags=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
         <?php endforeach; ?>
       </ul>
     </div>
   </div>
   <div class="span10 dblock" id="search-items">
     <div>
+      <?php foreach( $entities as $entity ): ?>
       <article>
         <div class="row-fluid">
           <div class="span2">
             <figure class="img-polaroid">
+              <img src="<?php echo $entity->getImg(); ?>" alt="" />
             </figure>
           </div>
           <div class="span9">
-            <h1><a href="./view-0">Title</a></h1>
+            <h1><a href="./view-<?php echo $entity->getId(); ?>"><?php echo $entity; ?></a></h1>
             <ul class="tags">
-              <?php foreach( array('tag', 'tag2', 'tag3') as $tag ): ?>
-              <li><a href="./search?tags=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
+              <?php foreach( $entity->getTags() as $tag ): ?>
+              <li><a href="./search?tags=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
               <?php endforeach; ?>
             </ul>
           </div>
@@ -36,6 +38,7 @@
           </div>
         </div>
       </article>
+      <?php endforeach; ?>
     </div>
   </div>
 </div>
