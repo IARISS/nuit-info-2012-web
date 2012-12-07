@@ -117,7 +117,7 @@ class Culture {
       $req = DataBase::getInstance()->prepare('INSERT INTO cultures(name, description, tags, img, gpsX, gpsY, gpsZ) VALUES (:name, :description, :tags, :img, :gpsX, :gpsY, :gpsZ)');
     }
     else{
-      $req = DataBase::getInstance()->prepare('UPDATE cultures SET (name = :name, description = :description, tags = :tags, img = :img, gpsX = :gpsX, gpsY = :gpsY, gpsZ = :gpsZ) WHERE id = :id');
+      $req = DataBase::getInstance()->prepare('UPDATE cultures SET name = :name, description = :description, tags = :tags, img = :img, gpsX = :gpsX, gpsY = :gpsY, gpsZ = :gpsZ WHERE id = :id');
       $req->bindvalue('id', $obj->getId(), PDO::PARAM_INT);
     }
     $req->bindValue('name', $obj->name, PDO::PARAM_STR);
