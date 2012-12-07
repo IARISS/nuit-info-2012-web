@@ -17,9 +17,11 @@ try {
   if( empty($post_description) )
     throw new Exception('Description vide');
 
-  $entity->setTitle($post_title);
+  $entity->setName($post_title);
   $entity->setDescription($post_description);
   Culture::saveCulture($entity);
+
+  Header('Location: ./view-' . $entity->getId());
 }
 catch(Exception $e)
 {
