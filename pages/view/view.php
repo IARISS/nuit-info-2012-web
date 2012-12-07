@@ -25,7 +25,7 @@
             </ul>
             <br />
             <div class="description">
-              <?php echo $entity->getDescription(); ?>
+              <?php echo $description; ?>
             </div>
           </div>
         </div>
