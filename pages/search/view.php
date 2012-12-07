@@ -23,7 +23,7 @@
         <div class="row-fluid">
           <div class="span2">
             <figure class="img-polaroid">
-              <img src="<?php echo $entity->getImg(); ?>" alt="" />
+              <img src="<?php echo $img; ?>" alt="" />
             </figure>
           </div>
           <div class="span10">

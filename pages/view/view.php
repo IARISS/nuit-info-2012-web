@@ -11,7 +11,7 @@
         <div class="row-fluid">
           <div class="span3" class="col-img">
             <figure class="img-polaroid">
-              <img src="<?php echo $entity->getImg(); ?>" alt="" />
+              <img src="<?php echo $img; ?>" alt="" />
             </figure>
           </div>
           <div class="span9">
@@ -19,7 +19,7 @@
               <?php echo $entity->getName(); ?> <a href="./edit-<?php echo $entity->getId(); ?>" class="muted pull-right" style="font-size: .35em; opacity: .5"><i class="icon-edit"></i> Editer la fiche</a>
             </h1>
             <h2>
-              <a href="<?php echo $mapsLink; ?>">Visiter</a>
+              <a href="<?php echo $mapsLink; ?>">Visiter &gt;</a>
             </h2>
             <ul class="tags">
               <?php foreach( $entity->getTags() as $tag ): ?>

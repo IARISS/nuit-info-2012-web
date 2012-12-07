@@ -33,4 +33,10 @@ foreach( $otherTags1 as $tag => $nb ) {
 }
 
 
+$img = $entity->getImg();
+
+if( empty($img) ) // /!\ @TODO getImageSize ouvre l'image ... à modifier
+  $img = 'theme/defaut/img/noimage.png';
+
+
 ?>

@@ -106,7 +106,7 @@ $_javascripts = array();
     </div>
     
     <footer>
-       
+       &copy; Iariss Team pour la <a href="http://www.nuitdelinfo.com/nuitinfo2012/">Nuit de l'info 2012</a> - <a href="http://blog.iarissme.me">Blog &amp; l'équipe</a>
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

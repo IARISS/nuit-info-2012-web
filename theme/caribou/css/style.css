@@ -2,6 +2,9 @@
   background-image: url('../img/alsaco-canadien.jpg');
 }
 
-input[type], input[type]:focus, button[type] { box-shadow: 0 0 8px red; }
+input[type], input[type]:focusje suis un ccaribou
+, button[type] { box-shadow: 0 0 8px red; }
 
 button[type] { background: red; color: white; }
+
+article header h1, h2, label { color: black; }

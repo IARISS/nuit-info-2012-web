@@ -87,6 +87,7 @@ h1, h2{
 }
 #container{
   padding-top: 60px;
+  padding-bottom: 50px;
 }
 article header h1{
   color: #ffffff;
@@ -96,3 +97,7 @@ label{
 }
 
 #caribou { position: absolute; bottom: 1%; left: 40%; right: 40%; text-align: center; }
+
+footer { padding: .5em; font-size: .75em; opacity: .5; }
+footer, footer * { text-align: center; color: black; }
+footer a { text-decoration: underline; }
