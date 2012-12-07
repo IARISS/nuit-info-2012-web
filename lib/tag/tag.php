@@ -109,7 +109,7 @@ class Tag {
         $toLearn[] = substr($word, 1);
       }
     }
-    $know = getTagsNameIn($toLearn);
+    $know = Tag::getTagsNameIn($toLearn);
     $toLearn = array_diff($toLearn, $know);
     foreach($toLearn as $tag){
       $t = new OtherTag();
