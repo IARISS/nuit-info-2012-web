@@ -43,7 +43,8 @@ include 'common.php';
           <a class="brand" href="./">Iariss Team</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="./"><i class="icon-home"></i> Accueil</a></li>
+              <li class="active"><a href="./"><i class="icon-home"></i> Recherche</a></li>
+              <li><a href="./add"><i class="icon-plus"></i> Cultivez</a></li>
             </ul>
             <ul class="nav pull-right">
               <li class="dropdown">
