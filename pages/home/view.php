@@ -31,7 +31,7 @@ $_javascripts[] = '<script>
     {
       $("#caribou").html("<img src=\"theme/caribou/img/caribou.png\" alt=\"Coucou le Caribou\" />");
       $("#search-go").html("En avant Tabernacle !");
-      $("#search-input").attr("placeholder", "Entre ton caribou alsacien (ex: s\'Dankmol, s\'Elsàss, Märikhàll, Màtros) ");
+      //$("#search-input").attr("placeholder", "Entre ton caribou alsacien (ex: s\'Dankmol, s\'Elsàss, Märikhàll, Màtros) ");
 
       state=0;
     }
@@ -39,5 +39,6 @@ $_javascripts[] = '<script>
   }
 }());
 </script>';
+
 
 ?>
