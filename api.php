@@ -56,7 +56,6 @@ switch($action) {
 }
 
 //Header('Content-type: application/json');
-var_dump($return);
 echo json_encode($return ?: new stdClass());
 
 
