@@ -29,6 +29,7 @@ class DataBase {
             self::$instance = new PDO($xmlConfig->dsn, $xmlConfig->login, $xmlConfig->password);
             self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             self::$instance->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            self::$instance->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, 'SET NAMES utf8');
         }
         self::$count++;
         return self::$instance;
