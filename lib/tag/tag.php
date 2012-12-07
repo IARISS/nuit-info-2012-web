@@ -145,10 +145,18 @@ class Tag {
     $req->closeCursor();
     return $objs;
   }
-  static public function deleteTag($id){
-    $req = DataBase::getInstance()->prepare('DELETE FROM tags WHERE id = :id');
-    $req->bindvalue('id', $id, PDO::PARAM_INT);
+  static public function getRandomTags($limit){
+    $objs = array();
+    $req = DataBase::getInstance()->prepare('SELECT id, name, tagType FROM tags ORDER BY RAND() LIMIT :limit');
+    $req->bindvalue('limit', $limit, PDO::PARAM_INT);
     $req->execute();
+    while($datas = $req->fetch()){
+      $obj = new Tag();
+      $obj->hydrate($datas);
+      $objs[] = $obj;
+    }
+    $req->closeCursor();
+    return $objs;
   }
 
   static public function install(){
