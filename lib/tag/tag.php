@@ -99,6 +99,24 @@ class Tag {
     $req->closeCursor();
     return $objs;
   }
+  static public function learnTags($str){
+    $pattern = '/[[:space:][:punct:]]/';
+    $strWords = preg_split($pattern, strtolower($str));
+    $words = array_unique($strWords);
+    $toLearn = array();
+    foreach($words as $word){
+      if(substr($word, 0, 1) == '#'){
+        $toLearn[] = substr($word, 1);
+      }
+    }
+    $know = getTagsNameIn($toLearn);
+    $toLearn = array_diff($toLearn, $know);
+    foreach($toLearn as $tag){
+      $t = new OtherTag();
+      $t->setName($tag);
+      Tag::saveTag($t);
+    }
+  }
   static public function getTagsExtractedFromString($str){
     $pattern = '/[[:space:][:punct:]]/';
     $strWords = preg_split($pattern, strtolower($str));

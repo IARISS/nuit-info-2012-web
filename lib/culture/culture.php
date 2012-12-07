@@ -92,7 +92,9 @@ class Culture {
 
   public function parseTags(){
     $this->tags = array();
-    $tags = Tag::getTagsExtractedFromString($this->name.' '.$this->description);
+    $str = $this->name.' '.$this->description;
+    Tag::learnTags($str);
+    $tags = Tag::getTagsExtractedFromString($str);
     $idArray = array();
     foreach($tags as $tag){
       $idArray[] = $tag->getId();
