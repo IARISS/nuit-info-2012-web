@@ -175,7 +175,7 @@ class Culture {
   }
   static public function getCulturesLike($search){
     $pattern = '/[[:space:][:punct:]]/';
-    $strWords = preg_split($pattern, strtolower($str));
+    $strWords = preg_split($pattern, strtolower($search));
     $words = array_unique($strWords);
     $objs = array();
     $req = DataBase::getInstance()->prepare('SELECT id, name, description, tags, img, gpsX, gpsY, gpsZ FROM cultures WHERE CONCAT(description, " ", name) REGEXP "(^|[[:space:][:punct:]])('.implode('|',$words).')([[:space:][:punct:]]|$)"');
