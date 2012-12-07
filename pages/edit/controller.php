@@ -13,7 +13,7 @@ if( !$get_id || !$entity )
 
 // Edition
 if( isset($_POST['description']) ) {
-  //$entity->setDescription($_POST['description']);
+  $entity->setDescription($_POST['description']);
   Culture::saveCulture($entity);
 }
 
