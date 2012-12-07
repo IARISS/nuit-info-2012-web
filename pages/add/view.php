@@ -5,7 +5,7 @@
 
   <?php print_error($errors); ?>
 
-  <form action="" method="POST">
+  <form action="?" method="POST">
     <div class="control-group">
       <label class="control-label">Titre :</label>
       <div class="controls">

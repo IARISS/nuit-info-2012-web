@@ -9,7 +9,7 @@
     <div>
       <article>
         <div class="row-fluid">
-          <div class="span3" class="col-img">
+          <div class="span3 col-img">
             <figure class="img-polaroid">
               <img src="<?php echo $img; ?>" alt="" />
             </figure>
@@ -23,7 +23,7 @@
             </h2>
             <ul class="tags">
               <?php foreach( $entity->getTags() as $tag ): ?>
-              <li><a href="./search?search=<?php echo $tag->getname(); ?>"><?php echo $tag->getName(); ?></a></li>
+              <li><a href="./search?search=<?php echo urlencode($tag->getname()); ?>"><?php echo $tag->getName(); ?></a></li>
               <?php endforeach; ?>
             </ul>
             <br />

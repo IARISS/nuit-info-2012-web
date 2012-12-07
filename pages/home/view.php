@@ -9,7 +9,7 @@
 
 <ul id="home-cloudtags">
   <?php foreach( $entitiesTopTags as $tag ): ?>
-  <li><a href="./search?tags=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
+  <li><a href="./search?tags=<?php echo urlencode($tag); ?>"><?php echo $tag; ?></a></li>
   <?php endforeach; ?>
 </ul>
 
@@ -31,7 +31,7 @@ $_javascripts[] = '<script>
     {
       $("#caribou").html("<img src=\"theme/caribou/img/caribou.png\" alt=\"Coucou le Caribou\" />");
       $("#search-go").html("En avant Tabernacle !");
-      //$("#search-input").attr("placeholder", "Entre ton caribou alsacien (ex: s\'Dankmol, s\'Elsàss, Märikhàll, Màtros) ");
+      $("#search-input").attr("placeholder", "Entre ton caribou alsacien (ex: s\'Dankmol, s\'Elsàss, Märikhàll, Màtros) ");
 
       state=0;
     }

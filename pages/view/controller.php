@@ -17,9 +17,15 @@ $tags = array();
 foreach( $entity->getTags() as $tag )
   $tags[] = $tag->getName();
 
-$description = preg_replace('`(' . implode('|', array_map('preg_quote', $tags)) . ')`sUi', '<a href="./search?search=$1">#$1</a>', str_replace('#', '', $description));
+$tags2 = array();
+foreach( array_map('preg_quote', $tags) as $t )
+  if( !empty($t) )
+    $tags2[] = $t;
 
-$mapsLink = 'https://maps.google.fr/maps?q='.$entity->getGpsX().'+'.$entity->getGpsY().'&hl=fr&ll='.$entity->getGpsX().','.$entity->getGpsY().'&sll='.$entity->getGpsY().','.$entity->getGpsY().'&t=h&z=16';
+if( $tags2 )
+  $description = preg_replace('`(' . implode('|', $tags2) . ')`sUi', '<a href="./search?search=$1">#$1</a>', str_replace('#', '', $description));
+
+$mapsLink = 'https://maps.google.fr/maps?q='.$entity->getGpsX().'+'.$entity->getGpsY().'&amp;hl=fr&amp;ll='.$entity->getGpsX().','.$entity->getGpsY().'&amp;sll='.$entity->getGpsY().','.$entity->getGpsY().'&amp;t=h&amp;z=16';
 
 
 $img = $entity->getImg();

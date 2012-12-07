@@ -2,7 +2,7 @@
   <header>
     <h1>Edition - <?php echo $entity; ?></h1>
   </header>
-  <form action="" method="POST">
+  <form action="?" method="POST">
     <div class="control-group">
       <label class="control-label">Titre :</label>
       <div class="controls">

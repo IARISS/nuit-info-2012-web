@@ -27,7 +27,7 @@ $_javascripts = array();
     
     -->
     <meta name="author" content="IarissTeam" />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <!--<meta http-equiv="X-UA-Compatible" content="chrome=1" />-->
     <meta name="viewport" content="width=device-width" />
     <meta name="robots" content="index, follow, archive" />
     <meta name="keywords" content="" />
@@ -74,7 +74,7 @@ $_javascripts = array();
                         continue;
                   ?>
                   <li <?php echo $_theme == (string) $theme ? 'class="active"' : null; ?>>
-                    <a href="?theme=<?php echo $theme; ?>"><?php echo ucwords($theme); ?></a>
+                    <a href="?theme=<?php echo urlencode($theme); ?>"><?php echo ucwords($theme); ?></a>
                   </li>
                   <?php endforeach; ?>
                 </ul>
