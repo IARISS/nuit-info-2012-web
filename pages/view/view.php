@@ -28,7 +28,7 @@
             </ul>
             <br />
             <div class="description">
-              <?php echo $description; ?>
+              <?php echo nl2br($description); ?>
             </div>
           </div>
         </div>

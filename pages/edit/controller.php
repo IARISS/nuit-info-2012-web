@@ -15,6 +15,17 @@ if( !$get_id || !$entity )
 if( isset($_POST['description'], $_POST['title']) ) {
   $entity->setName($_POST['title']);
   $entity->setDescription($_POST['description']);
+
+  if( isset($_POST['img']) ) {
+    $entity->setImg('http://' . preg_replace('`^http:\/\/`si', '', $_POST['img']));
+  }
+
+  if( isset($_POST['gpsX']) )
+    $entity->setGpsX($_POST['gpsX']);
+  
+  if( isset($_POST['gpsY']) )
+    $entity->setGpsY($_POST['gpsY']);
+
   Culture::saveCulture($entity);
 }
 
