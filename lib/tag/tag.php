@@ -65,7 +65,7 @@ class Tag {
       $req = DataBase::getInstance()->prepare('INSERT INTO tags(name, tagType) VALUES (:name, :tagType)');
     }
     else{
-      $req = DataBase::getInstance()->prepare('UPDATE tags SET (name = :name, tagType = :tagType) WHERE id = :id');
+      $req = DataBase::getInstance()->prepare('UPDATE tags SET name = :name, tagType = :tagType WHERE id = :id');
       $req->bindvalue('id', $obj->getId(), PDO::PARAM_INT);
     }
     $req->bindValue('name', $obj->name, PDO::PARAM_STR);
