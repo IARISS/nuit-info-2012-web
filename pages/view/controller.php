@@ -19,4 +19,5 @@ foreach( $entity->getTags() as $tag )
 
 $description = preg_replace('`(' . implode('|', array_map('preg_quote', $tags)) . ')`sUi', '<a href="./search?search=$1">#$1</a>', $description);
 
+$mapsLink = 'https://maps.google.fr/maps?q='.$entity->getGpsX().'+'.$entity->getGpsY().'&hl=fr&ll='.$entity->getGpsX().','.$entity->getGpsY().'&sll='.$entity->getGpsY().','.$entity->getGpsY().'&t=h&z=16';
 ?>

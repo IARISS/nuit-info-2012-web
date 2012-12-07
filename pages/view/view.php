@@ -18,6 +18,9 @@
             <h1>
               <?php echo $entity->getName(); ?> <a href="./edit-<?php echo $entity->getId(); ?>" class="muted pull-right" style="font-size: .35em; opacity: .5"><i class="icon-edit"></i> Editer la fiche</a>
             </h1>
+            <h2>
+              <a href="<?php echo $mapsLink; ?>">Visiter</a>
+            </h2>
             <ul class="tags">
               <?php foreach( $entity->getTags() as $tag ): ?>
               <li><a href="./search?search=<?php echo $tag->getname(); ?>"><?php echo $tag->getName(); ?></a></li>
