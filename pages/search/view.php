@@ -26,16 +26,13 @@
               <img src="<?php echo $entity->getImg(); ?>" alt="" />
             </figure>
           </div>
-          <div class="span9">
+          <div class="span10">
             <h1><a href="./view-<?php echo $entity->getId(); ?>"><?php echo $entity; ?></a></h1>
             <ul class="tags">
               <?php foreach( $entity->getTags() as $tag ): ?>
               <li><a href="./search?search=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
               <?php endforeach; ?>
             </ul>
-          </div>
-          <div class="span1 more">
-            <i class="icon-chevron-right"></i>
           </div>
         </div>
       </article>

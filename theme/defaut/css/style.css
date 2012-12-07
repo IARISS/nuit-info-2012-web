@@ -45,6 +45,7 @@ body {
 #search-items article .tags li { margin: 0; padding: 0; list-style-type: none; display: inline-block; }
 #search-items article .more * { display: none; }
 #search-items article:hover .more * { display: block; }
+#search-items > div { padding: 1.5em; padding-left: 0; }
 
 #search-item article figure { width: auto; height: auto; min-width: 120px; min-height: 120px; }
 #search-item article .tags { margin: 0; padding: 0; }
