@@ -6,6 +6,6 @@ use lib\tag\Tag;
 
 $get_search = isset($_GET['search']) ? htmlspecialchars($_GET['search']) : null;
 
-$entitiesTopTags = Tag(); //  array::getTopTags();
+$entitiesTopTags = array(); //Tag::getTopTags();
 
 ?>
