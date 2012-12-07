@@ -9,8 +9,8 @@
     <div>
       <h1>Related Tags</h1>
       <ul>
-        <?php foreach( $otherTags as $tag ): ?>
-        <li><a href="./search?search=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
+        <?php foreach( (array) $otherTags as $tag ): ?>
+        <li><a href="./search?search=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
         <?php endforeach; ?>
       </ul>
     </div>
