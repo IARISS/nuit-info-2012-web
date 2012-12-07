@@ -100,7 +100,7 @@ class Tag {
     return $objs;
   }
   static public function learnTags($str){
-    $pattern = '/[[:space:][\!"\$\'\(\)\*\+\.<>=\?\@\\\\^_`\{\}~:;\/]/';
+    $pattern = '/[[:space:][\!"\$\'\(\)\*\+\.,<>=\?\@\\\\^_`\{\}~:;\/]/';
     $strWords = preg_split($pattern, strtolower($str));
     $words = array_unique($strWords);
     $toLearn = array();
