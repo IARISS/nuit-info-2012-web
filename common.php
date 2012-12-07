@@ -35,3 +35,14 @@ str_replace(DIRECTORY_SEPARATOR, '', $_GET['page']); //Protection navigation
 
 $contentPage = 'pages/'.$_GET['page'].'/view.php';
 $contentPage = file_exists($contentPage)?$contentPage:'pages/errors/404.php';
+
+
+
+function print_error($errors) {
+  if( $errors ) {
+    $return  = '<div class="alert alert-error"><ul>';
+    foreach( (array) $errors as $error )
+      $return .= '<li>' . $error . '</li>';
+    $return .= '</ul></div>';
+  }
+}
