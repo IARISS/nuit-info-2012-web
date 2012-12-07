@@ -123,6 +123,7 @@ class Culture {
     $req->bindValue('name', $obj->name, PDO::PARAM_STR);
     $req->bindValue('description', $obj->description, PDO::PARAM_STR);
     $obj->parseTags();
+    var_dump($obj->getTagsString());
     $req->bindValue('tags', $obj->getTagsString(), PDO::PARAM_STR);
     $req->bindValue('img', $obj->img, PDO::PARAM_STR);
     $req->bindValue('gpsX', $obj->gpsX, PDO::PARAM_STR);
