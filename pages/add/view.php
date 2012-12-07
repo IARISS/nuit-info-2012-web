@@ -1,43 +1,26 @@
-<form id="search-search" class="form-search" method="GET" action="/search">
-  <div>
-    <input type="text" name="search" value="" class="input-xxlarg span5" placeholder="Entrez votre recherche (ex: Musée, Alsace, Etoffes, ...)" />
-  </div>
-</form>
+<article>
+  <header>
+    <h1>Ajouter</h1>
+  </header>
 
-<div class="row">
-  <div id="search-column" class="span2 dblock">
-    <div>
-      <h1>Related Tags</h1>
-      <ul>
-        <?php foreach( array('tag', 'tag2', 'tag3') as $tag ): ?>
-        <li><a href="./search?tags=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
-        <?php endforeach; ?>
-      </ul>
-    </div>
-  </div>
-  <div class="span10 dblock" id="search-items">
-    <div>
-      <article>
-        <form action="" method="POST" class="form-horizontal">
-              <div class="control-group">
-                <label class="control-label">Titre :</label>
-                <div class="controls">
-                  <input type="text" name="title" value="" />
-                </div>
-              </div>
+  <?php print_error($errors); ?>
 
-              <div class="control-group">
-                <label class="control-label">Description :</label>
-                <div class="controls">
-                  <textarea name="title"></textarea>
-                </div>
-              </div>
-              <div>
-                <input type="submit" class="btn btn-primary pull-right" value="Créer" />
-              </div>
-              <br /> <!-- todo -->
-        </form>
-      </article>
+  <form action="" method="POST">
+    <div class="control-group">
+      <label class="control-label">Titre :</label>
+      <div class="controls">
+        <input type="text" name="title" class="span6" value="<?php echo $post_title; ?>" />
+      </div>
     </div>
-  </div>
-</div>
+    <div class="control-group">
+      <label class="control-label">Description :</label>
+      <div class="controls">
+        <textarea name="description" class="span12" rows="15"><?php echo $post_description; ?></textarea>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <input type="submit" class="btn btn-primary" value="Ajouter" />
+    </div>
+  </form>
+</article>
