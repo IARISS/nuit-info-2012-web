@@ -210,10 +210,10 @@ class Culture {
         name varchar(255) NOT NULL,
         description text,
         tags text,
-        img varchar(255) NOT NULL,
-        gpsX varchar(255) NOT NULL,
-        gpsY varchar(255) NOT NULL,
-        gpsZ varchar(255) NOT NULL,
+        img varchar(255),
+        gpsX varchar(255),
+        gpsY varchar(255),
+        gpsZ varchar(255),
         PRIMARY KEY (id)
       ) ENGINE=InnoDB DEFAULT CHARSET = utf8 AUTO_INCREMENT = 1;
     ');
