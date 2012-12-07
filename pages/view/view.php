@@ -36,10 +36,12 @@
         <br />
         <div class="row-fluid">
           <div class="offset2 description">
-            <a href="#" class="pull-right"><i class="icon-*edit"></i> Editer la fiche</a>
             <?php echo $entity->getDescription(); ?>
           </div>
         </div>
+        <p class="align-center">
+          <a href="./edit-<?php echo $entity->getId(); ?>"><i class="icon-edit"></i> Editer la fiche</a>
+        </p>
       </article>
     </div>
   </div>
