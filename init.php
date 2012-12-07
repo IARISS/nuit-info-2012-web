@@ -90,13 +90,13 @@ foreach(explode(",", $str) as $word){
 	$t->setName($word);
 	Tag::saveTag($t);
 }
-*/
 $str = "préhistoire,antiquité,moyen-age,moderne,contemporain,renaissance,révolution,lumières,industrielle,glorieuses,guerres";
 foreach(explode(",", $str) as $word){
 	$t = new PosTag();
 	$t->setName($word);
 	Tag::saveTag($t);
 }
+*/
 
 foreach(Culture::getCultures() as $c){
 	Culture::saveCulture($c);

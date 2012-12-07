@@ -28,7 +28,7 @@ class Tag {
     $this->id = (int) $id;
   }
   public function getName(){
-    return $this->name;
+    return ucfirst($this->name);
   }
   public function setName($name){
     $this->name = $name;
