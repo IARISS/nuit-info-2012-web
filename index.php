@@ -56,8 +56,8 @@ include 'common.php';
           <a class="brand" href="./"><img class="logo" src="/theme/defaut/img/french-beret.png" alt="" /><span id="nav-title">Le guide du berêt</span></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="./"><i class="icon-home"></i> Recherche</a></li>
-              <li><a href="./add"><i class="icon-plus"></i> Cultivez</a></li>
+              <li<?php echo ($_GET['page'] != 'add'?' class="active"':''); ?>><a href="./"><i class="icon-home"></i> Recherche</a></li>
+              <li<?php echo ($_GET['page'] == 'add'?' class="active"':''); ?>><a href="./add"><i class="icon-plus"></i> Cultivez</a></li>
             </ul>
             <ul class="nav pull-right">
               <li class="dropdown">
@@ -82,7 +82,7 @@ include 'common.php';
     </div>
     
     <div>
-      <section class="container">
+      <section id="container" class="container">
       <?php
       try {
         $controllerPage = dirname($contentPage) . '/controller.php';

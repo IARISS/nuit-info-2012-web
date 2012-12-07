@@ -48,6 +48,9 @@ body {
 
 .form-actions{
   text-align: right;
+  background: none;
+  border: none;
+  margin-top: -20px;
 }
 .logo{
   position: absolute;
@@ -56,4 +59,13 @@ body {
   font-family: "Imprima", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #cc0000;
   margin-left: 80px;
+}
+#container{
+  padding-top: 60px;
+}
+article header h1{
+  color: #ffffff;
+}
+label{
+  color: #ffffff;
 }
