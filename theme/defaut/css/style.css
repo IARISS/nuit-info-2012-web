@@ -40,11 +40,19 @@ body {
   text-align: center;
 }
 
-#search-items article figure { min-width: 100px; min-height: 100px; }
+#search-items article figure { min-width: 80px; min-height: 80px; }
 #search-items article .tags { margin: 0; padding: 0; }
 #search-items article .tags li { margin: 0; padding: 0; list-style-type: none; display: inline-block; }
 #search-items article .more * { display: none; }
 #search-items article:hover .more * { display: block; }
+
+#search-item article figure { width: auto; height: auto; min-width: 120px; min-height: 120px; }
+#search-item article .tags { margin: 0; padding: 0; }
+#search-item article .tags li { margin: 0; padding: 0; list-style-type: none; display: inline-block; }
+#search-item article .more * { display: none; }
+#search-item article:hover .more * { display: block; }
+#search-item .col-img { text-align: center; }
+#search-item > div { padding: 1.5em; padding-left: 0; }
 
 .form-actions{
   text-align: right;

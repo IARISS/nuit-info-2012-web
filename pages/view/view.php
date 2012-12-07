@@ -5,16 +5,16 @@
   </div>
 </form>
 
-  <div class="dblock" id="search-items">
+  <div class="dblock" id="search-item">
     <div>
       <article>
         <div class="row-fluid">
-          <div class="span2">
+          <div class="span3" class="col-img">
             <figure class="img-polaroid">
               <img src="<?php echo $entity->getImg(); ?>" alt="" />
             </figure>
           </div>
-          <div class="span10">
+          <div class="span9">
             <h1>
               <?php echo $entity->getName(); ?> <a href="./edit-<?php echo $entity->getId(); ?>" class="muted pull-right" style="font-size: .35em; opacity: .5"><i class="icon-edit"></i> Editer la fiche</a>
             </h1>
@@ -23,12 +23,10 @@
               <li><a href="./search?search=<?php echo $tag->getname(); ?>"><?php echo $tag->getName(); ?></a></li>
               <?php endforeach; ?>
             </ul>
-          </div>
-        </div>
-        <br />
-        <div class="row-fluid">
-          <div class="offset2 description">
-            <?php echo $entity->getDescription(); ?>
+            <br />
+            <div class="description">
+              <?php echo $entity->getDescription(); ?>
+            </div>
           </div>
         </div>
       </article>
