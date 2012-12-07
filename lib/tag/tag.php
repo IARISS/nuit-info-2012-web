@@ -147,8 +147,7 @@ class Tag {
   }
   static public function getRandomTags($limit){
     $objs = array();
-    $req = DataBase::getInstance()->prepare('SELECT id, name, tagType FROM tags ORDER BY RAND() LIMIT :limit');
-    $req->bindvalue('limit', $limit, PDO::PARAM_INT);
+    $req = DataBase::getInstance()->prepare('SELECT id, name, tagType FROM tags ORDER BY RAND() LIMIT '.(is_numeric($limit)?$limit:0));
     $req->execute();
     while($datas = $req->fetch()){
       $obj = new Tag();

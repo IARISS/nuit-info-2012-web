@@ -1,6 +1,7 @@
 <?php
 namespace lib;
 use lib\culture\Culture;
+use lib\tag\Tag;
 
 spl_autoload_extensions('.php');
 spl_autoload_register();
@@ -35,6 +36,14 @@ switch($action) {
     }
     break;
 
+  case 'random' :
+    // @param search = $value
+    $tags = Tag::getRandomTags($value);
+    $return = array();
+    foreach($tags as $t){
+      $return['tag'][] = $t->toJson();
+    }
+    break;
 
   case 'view' :
     // @param id = $value
