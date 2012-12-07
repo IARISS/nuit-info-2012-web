@@ -109,6 +109,7 @@ $_javascripts = array();
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="./theme/defaut/js/bootstrap.min.js"></script>
+    <script src="./theme/defaut/js/jquery.snow.js"></script>
     <?php echo implode(PHP_EOL, $_javascripts); ?>
   </body>
 </html>

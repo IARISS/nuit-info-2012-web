@@ -5,19 +5,7 @@
   </div>
 </form>
 
-<div class="row">
-  <div id="search-column" class="span2 dblock">
-    <div>
-      <h1>Related Tags</h1>
-      <ul>
-        <?php /*foreach( (array) $otherTags as $tag ): ?>
-        <li><a href="./search?search=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
-        <?php endforeach;*/ ?>
-      </ul>
-      RIEN !!!!!!!!!!!!!
-    </div>
-  </div>
-  <div class="span10 dblock" id="search-items">
+  <div class="dblock" id="search-items">
     <div>
       <article>
         <div class="row-fluid">
@@ -46,4 +34,3 @@
       </article>
     </div>
   </div>
-</div>
