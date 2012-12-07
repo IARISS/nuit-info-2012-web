@@ -19,10 +19,14 @@ $_javascripts[] = '<script>
     window.addEventListener("keydown", function(e) {
       kkeys.push( e.keyCode );
       if ( kkeys.toString().indexOf( konami ) >= 0 ) {
-        alert("....");
+        $.fn.snow({ minSize: 5, maxSize: 50, newOn: 100, flakeColor: \'#ff0000\' });
       }
     }, true);
   }
+
+  $(document).ready(function() {
+    $(\'input[name="search"]\').focus();
+  });
 </script>';
 
 ?>
