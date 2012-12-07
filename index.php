@@ -7,6 +7,8 @@ use lib\content\Message;
 
 include 'common.php';
 
+$_javascripts = array();
+
 //Affichage
 ?><!DOCTYPE html>
 <html lang="fr">
@@ -107,5 +109,6 @@ include 'common.php';
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="./theme/defaut/js/bootstrap.min.js"></script>
+    <?php echo implode(PHP_EOL, $_javascripts); ?>
   </body>
 </html>
