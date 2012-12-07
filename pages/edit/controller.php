@@ -12,7 +12,8 @@ if( !$get_id || !$entity )
   throw new \Exception('Id not exits');
 
 // Edition
-if( isset($_POST['description']) ) {
+if( isset($_POST['description'], $_POST['title']) ) {
+  $entity->setName($_POST['title']);
   $entity->setDescription($_POST['description']);
   Culture::saveCulture($entity);
 }
