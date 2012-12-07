@@ -8,7 +8,7 @@
 <div class="row">
   <div id="search-column" class="span2 dblock">
     <div>
-      <h1>Related Tags</h1>
+      <h1>Tags</h1>
       <ul>
         <?php foreach( (array) $entitiesTags as $tag ): ?>
         <li><a href="./search?search=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
