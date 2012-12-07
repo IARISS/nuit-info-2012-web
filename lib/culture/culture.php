@@ -173,9 +173,27 @@ class Culture {
     $req->closeCursor();
     return $objs;
   }
+  static public function getCulturesLike($search){
+    $pattern = '/[[:space:][:punct:]]/';
+    $strWords = preg_split($pattern, strtolower($str));
+    $words = array_unique($strWords);
+    $objs = array();
+    $req = DataBase::getInstance()->prepare('SELECT id, name, description, tags, img, gpsX, gpsY, gpsZ FROM cultures WHERE CONCAT(description, " ", name) REGEXP "(^|[[:space:][:punct:]])('.implode('|',$words).')([[:space:][:punct:]]|$)"');
+    $req->execute();
+    while($datas = $req->fetch()){
+      $obj = new Culture();
+      $obj->hydrate($datas);
+      $objs[] = $obj;
+    }
+    $req->closeCursor();
+    return $objs;
+  }
   static public function findCultures($search){
     $tags = Tag::getTagsExtractedFromString($search);
-    return Culture::getCultugesWithTags($tags);
+    $taggedCultures = Culture::getCultugesWithTags($tags);
+    if(!empty($taggedCultures))
+      return $taggedCultures;
+    return Culture::getCulturesLike($search);
   }
   static public function deleteCulture($id){
     $req = DataBase::getInstance()->prepare('DELETE FROM cultures WHERE id = :id');

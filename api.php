@@ -31,14 +31,14 @@ switch($action) {
     $cultures = Culture::findCultures($value);
     $return = array();
     foreach($cultures as $c){
-      $return[] = $c->toJson();
+      $return['culture'][] = $c->toJson();
     }
     break;
 
 
   case 'view' :
     // @param id = $value
-    $return = Culture::getCulture($value)->toJson();
+    $return['culture'] = Culture::getCulture($value)->toJson();
     break;
 
   default:
