@@ -1,6 +1,7 @@
 <form id="search-search" class="form-search" method="GET" action="./search">
-  <div>
-    Recherche : <input type="text" name="search" value="<?php echo $get_search; ?>" class="input-xxlarg span5" placeholder="Entrez votre recherche (ex: Musée, Alsace, Etoffes, ...)" />
+  <div class="input-append">
+    <input type="text" name="search" value="<?php echo $get_search; ?>" class="span6" placeholder="Entrez votre recherche (ex: Musée, Alsace, Etoffes, ...)" />
+    <button class="btn" type="submit">Rechercher !</button>
   </div>
 </form>
 

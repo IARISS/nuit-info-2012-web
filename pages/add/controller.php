@@ -12,18 +12,21 @@ try {
   $post_description = isset($_POST['description']) ? htmlspecialchars($_POST['description']) : null;
 
   if( empty($post_title) )
-    throw new Exception('Titre vide');
+    throw new \Exception('Titre vide');
 
   if( empty($post_description) )
-    throw new Exception('Description vide');
+    throw new \Exception('Description vide');
 
+echo 0;
   $entity->setName($post_title);
   $entity->setDescription($post_description);
   Culture::saveCulture($entity);
 
-  Header('Location: ./view-' . $entity->getId());
+  var_dump($entity);
+
+  //Header('Location: ./view-' . $entity->getId());
 }
-catch(Exception $e)
+catch(\Exception $e)
 {
   $errors[] = $e->getMessage();
 }
