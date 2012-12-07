@@ -64,6 +64,9 @@ body {
 .logo{
   position: absolute;
 }
+h1, h2{
+  font-family: "Imprima", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 #nav-title{
   font-family: "Imprima", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #cc0000;
