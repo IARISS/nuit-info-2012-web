@@ -78,3 +78,5 @@ article header h1{
 label{
   color: #ffffff;
 }
+
+#caribou { position: absolute; bottom: 1%; left: 40%; right: 40%; text-align: center; }
