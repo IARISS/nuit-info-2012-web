@@ -1,13 +1,26 @@
 html{
   height: 100%;
+}
+
+#background {
+  position: fixed !important;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  z-index: -1000;
   background-image: url('../img/search-background.jpg');
   background-size: cover;
   background-position: center center;
 }
+#background-filter {
+  position: fixed !important;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  z-index: -500;
+  background-image: url('../img/r10.png');
+}
 
 body {
   background-color: transparent;
-  background-image: url('../img/r10.png');
   height: 100%;
 }
 

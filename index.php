@@ -47,6 +47,8 @@ $_javascripts = array();
 		<link rel="icon" type="image/png" href="/favicon.png" />
   </head>
   <body>
+    <div id="background"></div>
+    <div id="background-filter"></div>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
