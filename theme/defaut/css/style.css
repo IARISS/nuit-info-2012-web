@@ -49,3 +49,11 @@ body {
 .form-actions{
   text-align: right;
 }
+.logo{
+  position: absolute;
+}
+#nav-title{
+  font-family: "Imprima", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #cc0000;
+  margin-left: 80px;
+}

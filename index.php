@@ -12,6 +12,18 @@ include 'common.php';
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
+    <!--
+    
+    $$$$$$\                    $$\                           $$$$$$$$\                                
+    \_$$  _|                   \__|                          \__$$  __|                               
+      $$ |  $$$$$$\   $$$$$$\  $$\  $$$$$$$\  $$$$$$$\          $$ | $$$$$$\   $$$$$$\  $$$$$$\$$$$\  
+      $$ |  \____$$\ $$  __$$\ $$ |$$  _____|$$  _____|         $$ |$$  __$$\  \____$$\ $$  _$$  _$$\ 
+      $$ |  $$$$$$$ |$$ |  \__|$$ |\$$$$$$\  \$$$$$$\           $$ |$$$$$$$$ | $$$$$$$ |$$ / $$ / $$ |
+      $$ | $$  __$$ |$$ |      $$ | \____$$\  \____$$\          $$ |$$   ____|$$  __$$ |$$ | $$ | $$ |
+    $$$$$$\\$$$$$$$ |$$ |      $$ |$$$$$$$  |$$$$$$$  |         $$ |\$$$$$$$\ \$$$$$$$ |$$ | $$ | $$ |
+    \______|\_______|\__|      \__|\_______/ \_______/          \__| \_______| \_______|\__| \__| \__|
+    
+    -->
     <meta name="author" content="IarissTeam" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="viewport" content="width=device-width" />
@@ -19,9 +31,10 @@ include 'common.php';
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     
-    <title>IarissTeam</title>
+    <title>Le guide du berêt</title>
     
     <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Imprima" type="text/css" />
     <link rel="stylesheet" media="screen" href="theme/defaut/css/bootstrap.min.css" />
     <link rel="stylesheet" media="screen" href="theme/defaut/css/bootstrap-responsive.min.css" />
     <?php foreach( array('defaut', $_theme) as $t ): if( empty($t) ) continue; ?>
@@ -40,7 +53,7 @@ include 'common.php';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="./">Iariss Team</a>
+          <a class="brand" href="./"><img class="logo" src="/theme/defaut/img/french-beret.png" alt="" /><span id="nav-title">Le guide du berêt</span></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="./"><i class="icon-home"></i> Recherche</a></li>
