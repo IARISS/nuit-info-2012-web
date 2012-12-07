@@ -70,7 +70,7 @@ include 'common.php';
                         continue;
                   ?>
                   <li <?php echo $_theme == (string) $theme ? 'class="active"' : null; ?>>
-                    <a href="?theme=<?php echo $theme; ?>"><?php echo ucfirst($theme); ?></a>
+                    <a href="?theme=<?php echo $theme; ?>"><?php echo ucwords($theme); ?></a>
                   </li>
                   <?php endforeach; ?>
                 </ul>
