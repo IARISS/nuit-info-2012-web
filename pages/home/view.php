@@ -5,7 +5,7 @@
 </form>
 
 <ul id="home-cloudtags">
-  <?php foreach( array('tag', 'tag2', 'tag3') as $tag ): ?>
-  <li><a href="./search?tags=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
+  <?php foreach( $entitiesTopTags as $tag ): ?>
+  <li><a href="./search?tags=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
   <?php endforeach; ?>
 </ul>

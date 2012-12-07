@@ -40,18 +40,10 @@ include 'common.php';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Iariss Team</a>
+          <a class="brand" href="./">Iariss Team</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Accueil</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li class="divider"></li>
-                  <li class="nav-header">Nav header</li>
-                </ul>
-              </li>
+              <li class="active"><a href="./"><i class="icon-home"></i> Accueil</a></li>
             </ul>
             <ul class="nav pull-right">
               <li class="dropdown">

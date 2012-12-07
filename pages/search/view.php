@@ -10,7 +10,7 @@
       <h1>Related Tags</h1>
       <ul>
         <?php foreach( $entitiesTags as $tag ): ?>
-        <li><a href="./search?tags=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
+        <li><a href="./search?search=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
         <?php endforeach; ?>
       </ul>
     </div>
@@ -29,7 +29,7 @@
             <h1><a href="./view-<?php echo $entity->getId(); ?>"><?php echo $entity; ?></a></h1>
             <ul class="tags">
               <?php foreach( $entity->getTags() as $tag ): ?>
-              <li><a href="./search?tags=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
+              <li><a href="./search?search=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
               <?php endforeach; ?>
             </ul>
           </div>

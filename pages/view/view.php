@@ -9,8 +9,8 @@
     <div>
       <h1>Related Tags</h1>
       <ul>
-        <?php foreach( array('tag', 'tag2', 'tag3') as $tag ): ?>
-        <li><a href="./search?tags=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
+        <?php foreach( $otherTags as $tag ): ?>
+        <li><a href="./search?search=<php echo $tag; ?>"><?php echo $tag; ?></a></li>
         <?php endforeach; ?>
       </ul>
     </div>
@@ -28,7 +28,7 @@
             <h1><?php echo $entity->getName(); ?></h1>
             <ul class="tags">
               <?php foreach( $entity->getTags() as $tag ): ?>
-              <li><a href="./search?tags=<?php echo $tag->getname(); ?>"><?php echo $tag->getName(); ?></a></li>
+              <li><a href="./search?search=<?php echo $tag->getname(); ?>"><?php echo $tag->getName(); ?></a></li>
               <?php endforeach; ?>
             </ul>
           </div>

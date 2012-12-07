@@ -10,4 +10,24 @@ $entitiesTags = Tag::getTagsExtractedFromString($get_search);
 
 $entities = Culture::findCultures($get_search);
 
+$otherTags1 = array();
+$otherTags  = array();
+
+foreach( $entities as $entity ) {
+  foreach( $entity->getTagsId() as $tag )
+    if( !isset($otherTags[$tag]) )
+      $otherTags1[$tag] = 1;
+    else
+      $otherTags1[$tag]++;
+}
+
+krsort($otherTags1);
+
+$i = 0;
+foreach( $otherTags1 as $tag => $nb ) {
+  if( $i > 5 )
+    break;
+  $otherTags[] = Tag::getTag($tag);
+}
+
 ?>
