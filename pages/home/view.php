@@ -1,7 +1,7 @@
 <form id="home-search" class="form-search" method="GET" action="./search">
   <div class="input-append">
     <input type="text" name="search" value="" class="input-xxlarg span6" placeholder="Entrez votre recherche (ex: Musée, Alsace, Etoffes, ...)" />
-    <button class="btn" type="button">Rechercher !</button>
+    <button class="btn" type="submit">Rechercher !</button>
   </div>
 </form>
 
