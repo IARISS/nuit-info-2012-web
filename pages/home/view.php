@@ -38,6 +38,27 @@ $_javascripts[] = '<script>
   }, true);
   }
 }());
+
+
+(function () {
+  if ( window.addEventListener ) {
+    var state2 = 0,
+    konami = [38,38,40,40,37,39,37,39,66,65];
+
+    window.addEventListener("keydown", function(e) {
+     if ( e.keyCode == konami[state2] )
+      state2++;
+    else
+      state2 = 0;
+
+    if ( state2 == 10 )
+    {
+      $.fn.snow({ minSize: 5, maxSize: 50, newOn: 500, flakeColor: "#FFFFFF" });
+      state2=0;
+    }
+  }, true);
+  }
+}());
 </script>';
 
 
