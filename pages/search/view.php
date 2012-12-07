@@ -40,6 +40,9 @@
         </div>
       </article>
       <?php endforeach; ?>
+      <?php if( !$entities ): ?>
+      <p class="align-center">Aucun résultat trouvé ...</p>
+      <?php endif; ?>
     </div>
   </div>
 </div>

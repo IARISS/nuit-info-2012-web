@@ -14,6 +14,7 @@
         <li><a href="./search?search=<?php echo $tag; ?>"><?php echo $tag; ?></a></li>
         <?php endforeach;*/ ?>
       </ul>
+      RIEN !!!!!!!!!!!!!
     </div>
   </div>
   <div class="span10 dblock" id="search-items">

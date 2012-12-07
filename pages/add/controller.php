@@ -10,18 +10,21 @@ $errors = array();
 try {
   $post_title       = isset($_POST['title'])       ? htmlspecialchars($_POST['title'])       : null;
   $post_description = isset($_POST['description']) ? htmlspecialchars($_POST['description']) : null;
+    
+  if( isset($_POST['title'], $_POST['titldescription']) ) {
 
-  if( empty($post_title) )
-    throw new \Exception('Titre vide');
+    if( empty($post_title) )
+      throw new \Exception('Titre vide');
 
-  if( empty($post_description) )
-    throw new \Exception('Description vide');
+    if( empty($post_description) )
+      throw new \Exception('Description vide');
 
-  $entity->setName($post_title);
-  $entity->setDescription($post_description);
-  Culture::saveCulture($entity);
+    $entity->setName($post_title);
+    $entity->setDescription($post_description);
+    Culture::saveCulture($entity);
 
-  Header('Location: ./view-' . $entity->getId());
+    Header('Location: ./view-' . $entity->getId());
+  }
 }
 catch(\Exception $e)
 {
