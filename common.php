@@ -39,10 +39,14 @@ $contentPage = file_exists($contentPage)?$contentPage:'pages/errors/404.php';
 
 
 function print_error($errors) {
+  $return = null;
+  
   if( $errors ) {
-    $return  = '<div class="alert alert-error"><ul>';
+    $return  = '<div class="alert alert-error" style="margin: 2% 5%"><h2>Erreur</h2><ul>';
     foreach( (array) $errors as $error )
       $return .= '<li>' . $error . '</li>';
     $return .= '</ul></div>';
   }
+
+  echo $return;
 }
