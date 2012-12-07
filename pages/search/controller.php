@@ -32,4 +32,5 @@ foreach( $otherTags1 as $tag => $nb ) {
   $otherTags[] = Tag::getTag($tag);
 }
 
+
 ?>
