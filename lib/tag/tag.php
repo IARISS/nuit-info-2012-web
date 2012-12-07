@@ -106,7 +106,7 @@ class Tag {
     $toLearn = array();
     foreach($words as $word){
       if(substr($word, 0, 1) == '#'){
-        $toLearn[] = strtolower(substr($word, 1));
+        $toLearn[] = str_replace('#', '', $word));
       }
     }
     $know = Tag::getTagsNameIn($toLearn);
