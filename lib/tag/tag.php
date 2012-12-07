@@ -100,17 +100,21 @@ class Tag {
     return $objs;
   }
   static public function learnTags($str){
-    $pattern = '/[[:space:][:punct:]]/';
+    $pattern = '/[[:space:][\!"\$\'\(\)\*\+\.<>=\?\@\\\\^_`\{\}~:;\/]/';
     $strWords = preg_split($pattern, strtolower($str));
     $words = array_unique($strWords);
     $toLearn = array();
     foreach($words as $word){
       if(substr($word, 0, 1) == '#'){
-        $toLearn[] = substr($word, 1);
+        $toLearn[] = strtolower(substr($word, 1));
       }
     }
     $know = Tag::getTagsNameIn($toLearn);
-    $toLearn = array_diff($toLearn, $know);
+    $knowWord = array();
+    foreach($know as $k){
+      $knowWord[] = strtolower($k->getName());
+    }
+    $toLearn = array_diff($toLearn, $knowWord);
     foreach($toLearn as $tag){
       $t = new OtherTag();
       $t->setName($tag);
