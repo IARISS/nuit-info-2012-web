@@ -26,7 +26,9 @@
             </figure>
           </div>
           <div class="span10">
-            <h1><?php echo $entity->getName(); ?></h1>
+            <h1>
+              <?php echo $entity->getName(); ?> <a href="./edit-<?php echo $entity->getId(); ?>" class="muted pull-right" style="font-size: .35em; opacity: .5"><i class="icon-edit"></i> Editer la fiche</a>
+            </h1>
             <ul class="tags">
               <?php foreach( $entity->getTags() as $tag ): ?>
               <li><a href="./search?search=<?php echo $tag->getname(); ?>"><?php echo $tag->getName(); ?></a></li>
@@ -40,9 +42,6 @@
             <?php echo $entity->getDescription(); ?>
           </div>
         </div>
-        <p class="align-center">
-          <a href="./edit-<?php echo $entity->getId(); ?>"><i class="icon-edit"></i> Editer la fiche</a>
-        </p>
       </article>
     </div>
   </div>
